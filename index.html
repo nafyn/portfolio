@@ -137,7 +137,7 @@
 .carousel-track {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 12px;
   transition: transform 0.35s ease;
   will-change: transform;
 }
@@ -804,7 +804,7 @@
     function updateCarousel() {
       if (!slides.length) return;
 
-      const gap = 18;
+      const gap = 12;
       const slideWidth = slides[0].offsetWidth + gap;
       track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
       counter.textContent = `${currentIndex + 1} / ${slides.length}`;
