@@ -143,15 +143,16 @@
 }
 
 .carousel-slide {
-  flex: 0 0 58%;
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .carousel-slide img {
-  width: 100%;
+  width: auto;
   height: 200px;
+  max-width: 420px;
   display: block;
   object-fit: contain;
   object-position: center;
@@ -805,7 +806,7 @@
       if (!slides.length) return;
 
       const gap = 12;
-      const slideWidth = slides[0].offsetWidth + gap;
+      const slideWidth = slides[0].getBoundingClientRect().width + gap;
       track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
       counter.textContent = `${currentIndex + 1} / ${slides.length}`;
     }
