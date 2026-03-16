@@ -113,10 +113,6 @@
   margin-bottom: 8px;
 }
 
-.project-toggle .job-header {
-  pointer-events: none;
-}
-
 .project-toggle-icon {
   display: inline-block;
   margin-right: 8px;
@@ -791,6 +787,7 @@
       <span class="tag">spoke at EthCC[5]</span>
       <span class="tag">hosted an IRL event in Hanoï</span>
     </div>
+    </section>
 
   <!-- SKILLS -->
   <section>
@@ -838,7 +835,7 @@
   <script>
   // Per-project toggle
   document.querySelectorAll(".project-toggle").forEach((button) => {
-    const content = button.parentElement.querySelector(".project-toggle-content");
+    const content = button.closest(".job").querySelector(".project-toggle-content");
     const icon = button.querySelector(".project-toggle-icon");
 
     if (!content || !icon) return;
