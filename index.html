@@ -122,6 +122,18 @@
   display: none;
 }
 
+.project-subtag {
+  display: inline-block;
+  margin: 10px 0 8px;
+  padding: 5px 14px;
+  border: 1px solid var(--rule);
+  color: var(--mid);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: transparent;
+}
+
 /* ── SELECTED PROJECTS / COMPACT CAROUSEL ── */
 .project-carousel {
   margin-top: 16px;
@@ -219,11 +231,19 @@
 }
 
 /* ── TWEET PREVIEWS ── */
-.tweet-previews {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
+
+    .tweet-carousel {
   margin-top: 14px;
+}
+
+.tweet-slide {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: stretch;
+}
+
+.tweet-slide .tweet-card {
+  width: 320px;
 }
 
 .tweet-card {
@@ -232,6 +252,7 @@
   color: inherit;
   border: 1px solid var(--rule);
   background: #fff;
+  overflow: hidden;
 }
 
 .tweet-card:hover {
@@ -240,13 +261,15 @@
 
 .tweet-card img {
   width: 100%;
+  height: 180px;
   display: block;
-  aspect-ratio: 16 / 9;
   object-fit: cover;
+  background: #f2f0ec;
 }
 
 .tweet-card-body {
   padding: 10px 12px;
+  min-height: 120px;
 }
 
 .tweet-card-label {
@@ -254,7 +277,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--light);
-  margin-bottom: 3px;
+  margin-bottom: 6px;
 }
 
 .tweet-card-title {
@@ -505,6 +528,7 @@
     </button>
 
     <div class="project-toggle-content">
+      <span class="project-subtag">Monadventure Hunt</span>
       <ul>
         <li>Four months of weekly curated DJ / gaming events bringing together cultural references, crypto art and music in Monad Discord.</li>
       </ul>
@@ -568,83 +592,113 @@
     </button>
 
     <div class="project-toggle-content">
+      <span class="project-subtag">21 Days of Prompts Series</span>
       <ul>
         <li>Home-made pictochat style + fun illustrations to cover their technology</li>
       </ul>
 
-      <div class="tweet-previews">
-        <a href="https://x.com/pince_croco/status/1973283108851163583?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
-          <img src="cover/ritual-day1.jpeg" alt="21 days of Prompts - day 1">
-          <div class="tweet-card-body">
-            <div class="tweet-card-label">21 days of Prompts serie</div>
-            <div class="tweet-card-title">does Ritual let developers connect any API to the blockchain without an oracle?</div>
+      <div class="tweet-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1973283108851163583?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day1.jpeg" alt="21 days of Prompts - day 1">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">does Ritual let developers connect any API to the blockchain without an oracle?</div>
+                </div>
+              </a>
+            </div>
+      
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1973736941142307018?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day2.jpeg" alt="21 days of Prompts - day 2">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">explain me Ritual like im 10</div>
+                </div>
+              </a>
+            </div>
+      
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1974047076058345640?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day3.jpeg" alt="21 days of Prompts - day 3">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">if money could “think for itself”, what’s the funniest thing it would spend itself on first?</div>
+                </div>
+              </a>
+            </div>
+      
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1974475769092120602?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day4.jpeg" alt="21 days of Prompts - day 4">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">the most useful app you could imagine being built on Ritual and why?</div>
+                </div>
+              </a>
+            </div>
+      
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1974816675141763246?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day5.jpeg" alt="21 days of Prompts - day 5">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">you start with 1k invisible Ritual pts. how do you spend them to gain the biggest advantage?</div>
+                </div>
+              </a>
+            </div>
+      
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1975117063590142430?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day6.jpeg" alt="21 days of Prompts - day 6">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">in 5 years, what’s one everyday thing you think Ritual will secretly be powering behind the scenes?</div>
+                </div>
+              </a>
+            </div>
+      
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1975955707901124791?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day7.jpeg" alt="21 days of Prompts - day 7">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">think of your favorite everyday app. how could connecting its API to Ritual make it smarter or more useful?</div>
+                </div>
+              </a>
+            </div>
+      
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1976604587172966792?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day8.jpeg" alt="21 days of Prompts - day 8">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">if you could give your wallet access to any API in the world, which one would make it most powerful and why?</div>
+                </div>
+              </a>
+            </div>
+      
+            <div class="tweet-slide">
+              <a href="https://x.com/pince_croco/status/1976981306635698689?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
+                <img src="cover/ritual-day9.jpeg" alt="21 days of Prompts - day 9">
+                <div class="tweet-card-body">
+                  <div class="tweet-card-label">21 days of Prompts series</div>
+                  <div class="tweet-card-title">what’s the first “job” you think a Ritual powered AI agent will steal from humans?</div>
+                </div>
+              </a>
+            </div>
           </div>
-        </a>
-
-        <a href="https://x.com/pince_croco/status/1973736941142307018?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
-          <img src="cover/ritual-day2.jpeg" alt="21 days of Prompts - day 2">
-          <div class="tweet-card-body">
-            <div class="tweet-card-label">21 days of Prompts serie</div>
-            <div class="tweet-card-title">explain me Ritual like im 10</div>
+        </div>
+      
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
           </div>
-        </a>
-
-        <a href="https://x.com/pince_croco/status/1974047076058345640?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
-          <img src="cover/ritual-day3.jpeg" alt="21 days of Prompts - day 3">
-          <div class="tweet-card-body">
-            <div class="tweet-card-label">21 days of Prompts serie</div>
-            <div class="tweet-card-title">if money could “think for itself”, what’s the funniest thing it would spend itself on first?</div>
-          </div>
-        </a>
-
-        <a href="https://x.com/pince_croco/status/1974475769092120602?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
-          <img src="cover/ritual-day4.jpeg" alt="21 days of Prompts - day 4">
-          <div class="tweet-card-body">
-            <div class="tweet-card-label">21 days of Prompts serie</div>
-            <div class="tweet-card-title">the most useful app you could imagine being built on Ritual and why?</div>
-          </div>
-        </a>
-
-        <a href="https://x.com/pince_croco/status/1974816675141763246?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
-          <img src="cover/ritual-day5.jpeg" alt="21 days of Prompts - day 5">
-          <div class="tweet-card-body">
-            <div class="tweet-card-label">21 days of Prompts serie</div>
-            <div class="tweet-card-title">you start with 1k invisible Ritual pts. how do you spend them to gain the biggest advantage?</div>
-          </div>
-        </a>
-
-        <a href="https://x.com/pince_croco/status/1975117063590142430?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
-          <img src="cover/ritual-day6.jpeg" alt="21 days of Prompts - day 6">
-          <div class="tweet-card-body">
-            <div class="tweet-card-label">21 days of Prompts serie</div>
-            <div class="tweet-card-title">in 5 years, what’s one everyday thing you think Ritual will secretly be powering behind the scenes?</div>
-          </div>
-        </a>
-
-        <a href="https://x.com/pince_croco/status/1975955707901124791?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
-          <img src="cover/ritual-day7.jpeg" alt="21 days of Prompts - day 7">
-          <div class="tweet-card-body">
-            <div class="tweet-card-label">21 days of Prompts serie</div>
-            <div class="tweet-card-title">think of your favorite everyday app. how could connecting its API to Ritual make it smarter or more useful?</div>
-          </div>
-        </a>
-
-        <a href="https://x.com/pince_croco/status/1976604587172966792?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
-          <img src="cover/ritual-day8.jpeg" alt="21 days of Prompts - day 8">
-          <div class="tweet-card-body">
-            <div class="tweet-card-label">21 days of Prompts serie</div>
-            <div class="tweet-card-title">if you could give your wallet access to any API in the world, which one would make it most powerful and why?</div>
-          </div>
-        </a>
-
-        <a href="https://x.com/pince_croco/status/1976981306635698689?s=20" target="_blank" rel="noopener noreferrer" class="tweet-card">
-          <img src="cover/ritual-day9.jpeg" alt="21 days of Prompts - day 9">
-          <div class="tweet-card-body">
-            <div class="tweet-card-label">21 days of Prompts serie</div>
-            <div class="tweet-card-title">what’s the first “job” you think a Ritual powered AI agent will steal from humans?</div>
-          </div>
-        </a>
-        
+          <div class="carousel-counter">1 / 9</div>
+        </div>
       </div>
     </div>
   </div>
@@ -795,7 +849,7 @@
   // Compact carousel
   document.querySelectorAll("[data-carousel]").forEach((carousel) => {
     const track = carousel.querySelector(".carousel-track");
-    const slides = carousel.querySelectorAll(".carousel-slide");
+    const slides = carousel.querySelectorAll(".carousel-slide, .tweet-slide");
     const prevBtn = carousel.querySelector(".prev");
     const nextBtn = carousel.querySelector(".next");
     const counter = carousel.querySelector(".carousel-counter");
