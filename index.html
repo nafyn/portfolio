@@ -94,8 +94,7 @@
       line-height: 1.75;
     }
 
-    /* ── TOGGLE SECTION (selected projects only) ── */
-.toggle-section-button {
+.project-toggle {
   width: 100%;
   background: transparent;
   border: none;
@@ -104,31 +103,22 @@
   cursor: pointer;
   font: inherit;
   color: inherit;
+  margin-bottom: 8px;
 }
 
-.toggle-section-button h2 {
-  margin-bottom: 0;
+.project-toggle .job-header {
   pointer-events: none;
 }
 
-.toggle-section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 4px;
-  margin-bottom: 20px;
-}
-
-.toggle-section-icon {
-  font-size: 0.9rem;
+.project-toggle-icon {
+  display: inline-block;
+  margin-right: 8px;
   color: var(--light);
-  line-height: 1;
-  flex-shrink: 0;
+  font-size: 0.9rem;
+  transform: translateY(-1px);
 }
 
-.toggle-section-content.is-collapsed {
+.project-toggle-content.is-collapsed {
   display: none;
 }
 
@@ -498,20 +488,19 @@
   <!-- SELECTED PROJECTS -->
 <!-- SELECTED PROJECTS -->
 <section>
-  <button class="toggle-section-button" type="button" aria-expanded="true" id="selected-projects-toggle">
-    <div class="toggle-section-header">
-      <h2>Selected Projects</h2>
-      <span class="toggle-section-icon" id="selected-projects-icon">−</span>
-    </div>
-  </button>
+  <h2>Selected Projects</h2>
 
-  <div class="toggle-section-content" id="selected-projects-content">
-    <div class="job">
+  <div class="job">
+    <button class="project-toggle" type="button" aria-expanded="true">
       <div class="job-header">
-        <div class="job-title">Graphic Designer + Event Manager Curator — <a href="https://www.monad.xyz/" target="_blank">Monad</a></div>
+        <div class="job-title">
+          <span class="project-toggle-icon">▼</span>Graphic Designer + Event Manager Curator — <a href="https://www.monad.xyz/" target="_blank">Monad</a>
+        </div>
         <div class="job-meta">Apr 2025 - Jul 2025 · remote</div>
       </div>
+    </button>
 
+    <div class="project-toggle-content">
       <ul>
         <li>Four months of weekly curated DJ / gaming events bringing together cultural references, crypto art and music in Monad Discord.</li>
       </ul>
@@ -657,8 +646,8 @@
     <div class="press-links" style="margin-bottom: 14px;">
       <a href="https://www.linkedin.com/posts/fanny-grataloup_first-summit-so-delighted-to-be-there-under-activity-6912473691125661696-J9kt?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAC0fEkkBZ4hlOciDo91FBEv6xgFbimOjJfY" target="_blank">2022—Avalanche Summit, Barcelona</a>
       <a href="https://www.linkedin.com/posts/fanny-grataloup_cette-semaine-de-nombreux-membres-de-l%C3%A9cosyst%C3%A8me-activity-6956943229434929152-_leu?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAC0fEkkBZ4hlOciDo91FBEv6xgFbimOjJfY" target="_blank">2022—EthCC[5], Paris</a>
-      <a href="https://x.com/pince_croco/status/1947614511785251062?s=20" target="_blank">2025-Monad SGMY Meet-up, Kuala Lumpur</a>
-      <a href="https://x.com/pince_croco/status/1953363234507112594?s=20" target="_blank">2025-Monad VN Meet-up, Hanoï</a>
+      <a href="https://x.com/pince_croco/status/1947614511785251062?s=20" target="_blank">2025—Monad SGMY Meet-up, Kuala Lumpur</a>
+      <a href="https://x.com/pince_croco/status/1953363234507112594?s=20" target="_blank">2025—Monad VN Meet-up, Hanoï</a>
       <span style="font-size:0.9rem; color:var(--black); margin-right:20px;">BBC News Click</span>
     </div>
     
@@ -712,16 +701,19 @@
   </div>
 
   <script>
-  // Selected Projects toggle only
-  const selectedProjectsToggle = document.getElementById("selected-projects-toggle");
-  const selectedProjectsContent = document.getElementById("selected-projects-content");
-  const selectedProjectsIcon = document.getElementById("selected-projects-icon");
+  // Per-project toggle
+  document.querySelectorAll(".project-toggle").forEach((button) => {
+    const content = button.parentElement.querySelector(".project-toggle-content");
+    const icon = button.querySelector(".project-toggle-icon");
 
-  selectedProjectsToggle.addEventListener("click", () => {
-    const expanded = selectedProjectsToggle.getAttribute("aria-expanded") === "true";
-    selectedProjectsToggle.setAttribute("aria-expanded", String(!expanded));
-    selectedProjectsContent.classList.toggle("is-collapsed", expanded);
-    selectedProjectsIcon.textContent = expanded ? "+" : "−";
+    if (!content || !icon) return;
+
+    button.addEventListener("click", () => {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!expanded));
+      content.classList.toggle("is-collapsed", expanded);
+      icon.textContent = expanded ? "▶" : "▼";
+    });
   });
 
   // Compact carousel
