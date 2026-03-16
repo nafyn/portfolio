@@ -94,37 +94,99 @@
       line-height: 1.75;
     }
 
-    /* ── SELECTED PROJECTS / CAROUSEL ── */
-.project-carousel {
-  margin-top: 14px;
+    /* ── TOGGLE SECTION (selected projects only) ── */
+.toggle-section-button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
 }
 
-.carousel-frame {
-  position: relative;
-  border: 1px solid var(--rule);
-  background: #f2f0ec;
-  overflow: hidden;
+.toggle-section-button h2 {
+  margin-bottom: 0;
+  pointer-events: none;
+}
+
+.toggle-section-header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 4px;
+  margin-bottom: 20px;
 }
 
-.carousel-slide {
+.toggle-section-icon {
+  font-size: 0.9rem;
+  color: var(--light);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.toggle-section-content.is-collapsed {
   display: none;
 }
 
-.carousel-slide.active {
-  display: block;
+/* ── SELECTED PROJECTS / COMPACT CAROUSEL ── */
+.project-carousel {
+  margin-top: 16px;
+}
+
+.carousel-shell {
+  position: relative;
+  overflow: hidden;
+  padding: 0 36px;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+.carousel-slide {
+  flex: 0 0 68%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-slide img {
   width: 100%;
-  height: 520px;
+  height: 240px;
   display: block;
   object-fit: contain;
   object-position: center;
   cursor: zoom-in;
   background: #f2f0ec;
+}
+
+.carousel-shell::before,
+.carousel-shell::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-shell::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg), rgba(250, 249, 247, 0));
+}
+
+.carousel-shell::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg), rgba(250, 249, 247, 0));
 }
 
 .carousel-controls {
@@ -433,83 +495,90 @@
     </p>
   </section>
 
-   <!-- SELECTED PROJECTS -->
   <!-- SELECTED PROJECTS -->
+<!-- SELECTED PROJECTS -->
 <section>
-  <h2>Selected Projects</h2>
-
-  <div class="job">
-    <div class="job-header">
-      <div class="job-title">Graphic Designer + Event Manager Curator — <a href="https://www.monad.xyz/" target="_blank">Monad</a></div>
-      <div class="job-meta">Apr 2025 - Jul 2025 · remote</div>
+  <button class="toggle-section-button" type="button" aria-expanded="true" id="selected-projects-toggle">
+    <div class="toggle-section-header">
+      <h2>Selected Projects</h2>
+      <span class="toggle-section-icon" id="selected-projects-icon">−</span>
     </div>
+  </button>
 
-    <ul>
-      <li>Four months of weekly curated DJ / gaming events bringing together cultural references, crypto art and music in Monad Discord.</li>
-    </ul>
+  <div class="toggle-section-content" id="selected-projects-content">
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Graphic Designer + Event Manager Curator — <a href="https://www.monad.xyz/" target="_blank">Monad</a></div>
+        <div class="job-meta">Apr 2025 - Jul 2025 · remote</div>
+      </div>
 
-    <div class="project-carousel" data-carousel>
-  <div class="carousel-frame">
+      <ul>
+        <li>Four months of weekly curated DJ / gaming events bringing together cultural references, crypto art and music in Monad Discord.</li>
+      </ul>
 
-    <div class="carousel-slide active">
-      <img src="posters/papayou.png" alt="Monad event visual 1">
-    </div>
+      <div class="project-carousel" data-carousel>
+        <div class="carousel-shell">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <img src="posters/papayou.png" alt="Monad event visual 1">
+            </div>
 
-    <div class="carousel-slide">
-      <img src="posters/laquita.png" alt="Monad event visual 2">
-    </div>
+            <div class="carousel-slide">
+              <img src="posters/laquita.png" alt="Monad event visual 2">
+            </div>
 
-    <div class="carousel-slide">
-      <img src="posters/cookie.png" alt="Monad event visual 3">
-    </div>
+            <div class="carousel-slide">
+              <img src="posters/cookie.png" alt="Monad event visual 3">
+            </div>
 
-    <div class="carousel-slide">
-      <img src="posters/frico.png" alt="Monad event visual 4">
-    </div>
+            <div class="carousel-slide">
+              <img src="posters/frico.png" alt="Monad event visual 4">
+            </div>
 
-    <div class="carousel-slide">
-      <img src="posters/midodo.png" alt="Monad event visual 5">
-    </div>
+            <div class="carousel-slide">
+              <img src="posters/midodo.png" alt="Monad event visual 5">
+            </div>
 
-    <div class="carousel-slide">
-      <img src="posters/ghooolyache.png" alt="Monad event visual 6">
-    </div>
+            <div class="carousel-slide">
+              <img src="posters/ghooolyache.png" alt="Monad event visual 6">
+            </div>
 
-    <div class="carousel-slide">
-      <img src="posters/lambe.png" alt="Monad event visual 7">
-    </div>
+            <div class="carousel-slide">
+              <img src="posters/lambe.png" alt="Monad event visual 7">
+            </div>
 
-    <div class="carousel-slide">
-      <img src="posters/flowmyc-baeye.jpg" alt="Monad event visual 8">
-    </div>
-
-  </div>
-
-  <div class="carousel-controls">
-    <div class="carousel-nav">
-      <button class="carousel-btn prev" type="button">Prev</button>
-      <button class="carousel-btn next" type="button">Next</button>
-    </div>
-    <div class="carousel-counter">1 / 8</div>
-  </div>
-</div>
-
-    <div class="tweet-previews">
-      <a href="https://x.com/pince_croco/status/1111111111111111111" target="_blank" rel="noopener noreferrer" class="tweet-card">
-        <img src="images/tweet-monad-1.jpg" alt="Launch thread preview">
-        <div class="tweet-card-body">
-          <div class="tweet-card-label">Tweet</div>
-          <div class="tweet-card-title">Launch thread</div>
+            <div class="carousel-slide">
+              <img src="posters/flowmyc-baeye.jpg" alt="Monad event visual 8">
+            </div>
+          </div>
         </div>
-      </a>
 
-      <a href="https://x.com/pince_croco/status/2222222222222222222" target="_blank" rel="noopener noreferrer" class="tweet-card">
-        <img src="images/tweet-monad-2.jpg" alt="Event recap preview">
-        <div class="tweet-card-body">
-          <div class="tweet-card-label">Tweet</div>
-          <div class="tweet-card-title">Event recap</div>
+        <div class="carousel-controls">
+          <div class="carousel-nav">
+            <button class="carousel-btn prev" type="button">Prev</button>
+            <button class="carousel-btn next" type="button">Next</button>
+          </div>
+          <div class="carousel-counter">1 / 8</div>
         </div>
-      </a>
+      </div>
+
+      <div class="tweet-previews">
+        <a href="https://x.com/pince_croco/status/1111111111111111111" target="_blank" rel="noopener noreferrer" class="tweet-card">
+          <img src="images/tweet-monad-1.jpg" alt="Launch thread preview">
+          <div class="tweet-card-body">
+            <div class="tweet-card-label">Tweet</div>
+            <div class="tweet-card-title">Launch thread</div>
+          </div>
+        </a>
+
+        <a href="https://x.com/pince_croco/status/2222222222222222222" target="_blank" rel="noopener noreferrer" class="tweet-card">
+          <img src="images/tweet-monad-2.jpg" alt="Event recap preview">
+          <div class="tweet-card-body">
+            <div class="tweet-card-label">Tweet</div>
+            <div class="tweet-card-title">Event recap</div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -641,9 +710,23 @@
     <img id="lightboxImage" src="" alt="">
   </div>
   </div>
-  
-<script>
+
+  <script>
+  // Selected Projects toggle only
+  const selectedProjectsToggle = document.getElementById("selected-projects-toggle");
+  const selectedProjectsContent = document.getElementById("selected-projects-content");
+  const selectedProjectsIcon = document.getElementById("selected-projects-icon");
+
+  selectedProjectsToggle.addEventListener("click", () => {
+    const expanded = selectedProjectsToggle.getAttribute("aria-expanded") === "true";
+    selectedProjectsToggle.setAttribute("aria-expanded", String(!expanded));
+    selectedProjectsContent.classList.toggle("is-collapsed", expanded);
+    selectedProjectsIcon.textContent = expanded ? "+" : "−";
+  });
+
+  // Compact carousel
   document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
     const slides = carousel.querySelectorAll(".carousel-slide");
     const prevBtn = carousel.querySelector(".prev");
     const nextBtn = carousel.querySelector(".next");
@@ -652,9 +735,11 @@
     let currentIndex = 0;
 
     function updateCarousel() {
-      slides.forEach((slide, index) => {
-        slide.classList.toggle("active", index === currentIndex);
-      });
+      if (!slides.length) return;
+
+      const gap = 18;
+      const slideWidth = slides[0].offsetWidth + gap;
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
       counter.textContent = `${currentIndex + 1} / ${slides.length}`;
     }
 
@@ -668,9 +753,11 @@
       updateCarousel();
     });
 
+    window.addEventListener("resize", updateCarousel);
     updateCarousel();
   });
 
+  // Lightbox
   const lightbox = document.getElementById("lightbox");
   const lightboxImage = document.getElementById("lightboxImage");
   const lightboxClose = document.getElementById("lightboxClose");
@@ -703,5 +790,6 @@
     }
   });
 </script>
+
 </body>
 </html>
