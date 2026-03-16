@@ -87,12 +87,12 @@
     }
 
     /* ── PROFILE ── */
-    .profile-text {
+  .profile-text {
       font-size: 0.97rem;
       color: var(--mid);
       max-width: 640px;
       line-height: 1.75;
-    }
+  }
 
 .project-title-row {
   display: flex;
@@ -101,16 +101,27 @@
   flex-wrap: wrap;
 }
 
+.project-title-row a {
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-title-row a:hover {
+  border-bottom-color: var(--black);
+}
+
 .project-toggle {
-  width: 100%;
+  width: auto;
   background: transparent;
   border: none;
   padding: 0;
+  margin: 0;
   text-align: left;
   cursor: pointer;
   font: inherit;
   color: inherit;
-  margin-bottom: 8px;
+  display: inline;
 }
 
 .project-toggle-icon {
