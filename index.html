@@ -148,6 +148,44 @@
   background: transparent;
 }
 
+.project-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 12px;
+}
+
+.tab-btn {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mid);
+  border: 1px solid var(--rule);
+  padding: 4px 10px;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.tab-btn:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.tab-btn.is-active {
+  border-color: var(--black);
+  color: var(--black);
+}
+
+/* Panels */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.is-active {
+  display: block;
+}
+
 /* ── SELECTED PROJECTS / COMPACT CAROUSEL ── */
 .project-carousel {
   margin-top: 16px;
@@ -1377,6 +1415,30 @@
       closeLightbox();
     }
   });
+
+  document.querySelectorAll(".project-tabs").forEach((tabsContainer) => {
+  const buttons = tabsContainer.querySelectorAll(".tab-btn");
+  const job = tabsContainer.closest(".job");
+  const panels = job.querySelectorAll(".tab-panel");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = btn.dataset.tab;
+
+      // active button
+      buttons.forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+
+      // show panel
+      panels.forEach((panel) => {
+        panel.classList.toggle(
+          "is-active",
+          panel.dataset.panel === target
+        );
+      });
+    });
+  });
+});
 </script>
 
 </body>
