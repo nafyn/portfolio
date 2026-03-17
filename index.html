@@ -714,18 +714,32 @@
     </div>
   </div>
 
-  <div class="job">
-    <div class="job-header">
-      <div class="job-title project-title-row">
-        <button class="project-toggle" type="button" aria-expanded="true">
-          <span class="project-toggle-icon">▼</span>Quantitative Strategist — Miscellaneous
-        </button>
-      </div>
-      <div class="job-meta">Apr 2025 - Jul 2025 · remote</div>
-    </div>   
+<!-- MODIF EN COURS -->
+<div class="job">
+  <div class="job-header">
+    <div class="job-title project-title-row">
+      <button class="project-toggle" type="button" aria-expanded="true">
+        <span class="project-toggle-icon">▼</span>
+        Quantitative Strategist — Miscellaneous
+      </button>
+    </div>
+    <div class="job-meta">Apr 2025 - Jul 2025 · remote</div>
+  </div>
 
-    <div class="project-toggle-content">
-      <span class="project-subtag">monad weekly yield</span>
+  <div class="project-toggle-content">
+
+    <!-- TAGS -->
+    <div class="project-tabs">
+      <button class="tab-btn is-active" data-tab="yield">monad weekly yield</button>
+      <button class="tab-btn" data-tab="eco">eco cheatsheets</button>
+      <button class="tab-btn" data-tab="maths">maths, ROI, loops & pts</button>
+      <button class="tab-btn" data-tab="lending">lending related</button>
+    </div>
+
+    <!-- PANELS -->
+
+    <!-- YIELD -->
+    <div class="tab-panel is-active" data-panel="yield">
       <p class="job-description">its all about consistency and not chasing too many rabbits (˶˃⤙˂˶)</p>
 
       <div class="tweet-carousel" data-carousel>
@@ -811,13 +825,14 @@
           </div>
           <div class="carousel-counter">1 / 7</div>
         </div>
+        
       </div>
     </div>
-  </div>
+    </div>
 
-  <div class="project-toggle-content">
-      <span class="project-subtag">eco cheatsheets</span>
-      <p class="job-description">turning blockhains defi into my playground! highly powered by excalidraw</p>
+    <!-- ECO -->
+    <div class="tab-panel" data-panel="eco">
+      <p class="job-description">turning blockchains defi into my playground! highly powered by excalidraw</p>
 
       <div class="tweet-carousel" data-carousel>
         <div class="carousel-shell">
@@ -876,10 +891,10 @@
         
       </div>
     </div>
-  </div>
+    </div>
 
-  <div class="project-toggle-content">
-      <span class="project-subtag">maths, ROI, loops & pts</span>
+    <!-- MATHS -->
+    <div class="tab-panel" data-panel="maths">
       <p class="job-description">calculation motto: this is the greed they talk about in the bible</p>
 
       <div class="tweet-carousel" data-carousel>
@@ -979,11 +994,10 @@
         
       </div>
     </div>
-  </div>
+    </div>
 
-  <!-- DEFAULT TEMPLATE -->
-    <div class="project-toggle-content">
-      <span class="project-subtag">lending related</span>
+    <!-- LENDING -->
+    <div class="tab-panel" data-panel="lending">
       <p class="job-description">small explanation</p>
 
       <div class="tweet-carousel" data-carousel>
@@ -1022,9 +1036,10 @@
         </div>
       </div>
     </div>
+    </div>
+
   </div>
-   <!-- END TEMPLATE -->
-  
+</div>  
 
   <!-- DEFAULT TEMPLATE -->
     <div class="project-toggle-content">
