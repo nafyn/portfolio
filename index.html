@@ -390,13 +390,15 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      flex-wrap: wrap;
-      gap: 4px;
+      gap: 12px;
+      flex-wrap: nowrap;
     }
 
     .job-title {
       font-weight: 700;
       font-size: 1rem;
+      flex: 1 1 auto;
+      min-width: 0;
     }
 
     .job-title a {
@@ -414,6 +416,8 @@
       color: var(--light);
       font-style: italic;
       white-space: nowrap;
+      lex: 0 0 auto;
+      margin-left: auto;
     }
 
     .job-description {
